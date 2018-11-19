@@ -1,12 +1,31 @@
 package com.example.model;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 public abstract class Person {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int    id;
+	
+	@Column(name = "name")
 	private String name;
+	
+	@Column(name = "birth")
 	private String birth;
+	
+	@Column(name = "cpf")
 	private int    cpf;
+	
+	@Column(name = "genre")
 	private char   genre;
+	
+	@Column(name = "email")
 	private String email;
+	
+	@Column(name = "cell")
 	private String cell;
 	
 	public Person () { }
