@@ -3,6 +3,9 @@ package com.example.model;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
@@ -14,7 +17,24 @@ public class Patient extends Person implements Serializable {
 		super();
 	}
 	
-	public Patient (int id, String name, String birth, int cpf, char genre, String email, String cell) {
-		super(id, name, birth, cpf, genre, email, cell);
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int    id;
+
+	public Patient(int id, String name, String birth, String cpf, char genre, String email, String cell) {
+		super(name, birth, cpf, genre, email, cell);
+		// TODO Auto-generated constructor stub
+		this.id=id;
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	
+	
 }

@@ -6,9 +6,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 public abstract class Person {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int    id;
 	
 	@Column(name = "name")
 	private String name;
@@ -17,7 +14,7 @@ public abstract class Person {
 	private String birth;
 	
 	@Column(name = "cpf")
-	private int    cpf;
+	private String    cpf;
 	
 	@Column(name = "genre")
 	private char   genre;
@@ -30,8 +27,8 @@ public abstract class Person {
 	
 	public Person () { }
 	
-	public Person (int id, String name, String birth, int cpf, char genre, String email, String cell) {
-		this.id    = id;
+	public Person (String name, String birth, String cpf, char genre, String email, String cell) {
+		
 		this.name  = name;
 		this.birth = birth;
 		this.cpf   = cpf;
@@ -39,28 +36,54 @@ public abstract class Person {
 		this.email = email;
 		this.cell  = cell;
 	}
-	
-	public int getId() {
-		return id;
-	}
-	
+
 	public String getName() {
 		return name;
 	}
-	
-	public String getBirth() {
-		return birth;
-	}
-	
-	public int getCpf() {
-		return cpf;
-	}
-	
-	public char getGenre() {
-		return genre;
-	}
-	
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public String getBirth() {
+		return birth;
+	}
+
+	public void setBirth(String birth) {
+		this.birth = birth;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public char getGenre() {
+		return genre;
+	}
+
+	public void setGenre(char genre) {
+		this.genre = genre;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getCell() {
+		return cell;
+	}
+
+	public void setCell(String cell) {
+		this.cell = cell;
+	}
+	
+	
 }
