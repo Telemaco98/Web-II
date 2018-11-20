@@ -7,23 +7,26 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "medicalrecords")
+@Table(name = "medicalRecords")
 public class MedicalRecord {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int    id;
 	
-	@Column(name = "idPatient")
+	@ManyToOne
+	@JoinColumn(name="patient_id")
 	private Patient patient; /** The patient id */ 
 	@Column(name = "height")
-	private int    height; 	 /** The patient height in cm */
+	private float    height; 	 /** The patient height in cm */
 	@Column(name = "weight")
 	private float  weight;	 /** The patient height in kg */
 	@Column(name = "date")
-	private Date   date;
+	private String   date;
 	@Column(name = "description")
 	private String description;
 	@Column(name = "symptoms")
@@ -37,20 +40,7 @@ public class MedicalRecord {
 	@Column(name = "clinicalStatus")
 	private String clinicalStatus;
 	
-	public MedicalRecord(Patient patient, int height, float weight, Date date, String description, String symptoms,
-			float systolicBloodPressure, float diastolicBloodPressure, String medication, String clinicalStatus) {
-		super();
-		this.patient = patient;
-		this.height = height;
-		this.weight = weight;
-		this.date = date;
-		this.description = description;
-		this.symptoms = symptoms;
-		this.systolicBloodPressure = systolicBloodPressure;
-		this.diastolicBloodPressure = diastolicBloodPressure;
-		this.medication = medication;
-		this.clinicalStatus = clinicalStatus;
-	}
+	
 
 	public int getId() {
 		return id;
@@ -64,31 +54,31 @@ public class MedicalRecord {
 		return patient;
 	}
 
-	public void setIdPatient(Patient patient) {
+	public void setPatient(Patient patient) {
 		this.patient = patient;
 	}
 
-	public int getHeight() {
+	public float getHeight() {
 		return height;
 	}
 
-	public void setHeight(int height) {
+	public void setHeight(float height) {
 		this.height = height;
 	}
 
-	public float getWidth() {
+	public float getWeight() {
 		return weight;
 	}
 
-	public void setWidth(float width) {
-		this.weight = width;
+	public void setWeight(float weight) {
+		this.weight = weight;
 	}
 
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 

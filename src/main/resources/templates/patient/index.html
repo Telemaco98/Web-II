@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorator="layout">
+<head>
+ 	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Patient List</title>
+</head>
+<body>
+
+	<div layout:fragment="content">
+		<h1>Patient List</h1>
+		<hr />
+		<a th:href="@{/patients/new}" class="btn btn-success">New Patient</a><br/><br/>
+		
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Birth</th>
+					<th>CPF</th>
+					<th>Genre</th>
+					<th>Email</th>
+					<th>Cell Phone</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="patient : ${listPatient}">
+					<td th:text="${patient.name}"></td> 
+					<td th:text="${patient.birth}"></td> 
+					<td th:text="${patient.cpf}"></td> 
+					<td th:text="${patient.genre}"></td> 
+					<td th:text="${patient.email}"></td> 
+					<td th:text="${patient.cell}"></td>
+					<td>
+							<a th:href="@{/patients/{id}(id = ${patient.id})}" class="btn btn-primary" >View</a> 
+					 		<a th:href="@{/patients/{id}/edit(id = ${patient.id})}" class="btn btn-info">Edit</a> 
+					 		<a th:href="${'patients/'+ patient.id +'/delete'}" class="btn btn-danger">Delete</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	  </div>
+	  
+	  
+</body>
+</html>

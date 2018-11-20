@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
 	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-<head>
- 	<meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <title>Layout</title>
-    
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    
-</head>
-<body>
+	<head>
+	 	<meta charset="utf-8" />
+	    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	    <meta name="description" content="" />
+	    <meta name="author" content="" />
+	    <title>Home</title>
+	    
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	    
+	</head>
+	<body>
+	<body>
     <div class="navbar navbar-inverse navbar-fixed-top">
 	    <div class="container">
 	        <div class="navbar-header">
@@ -20,12 +21,14 @@
 	                <span class="icon-bar"></span>
 	                <span class="icon-bar"></span>
 	            </button>
-	            <a class="navbar-brand" href="/">Prontuário.br</a>
+	            <a class="navbar-brand" href="/">School</a>
 	        </div>
 	        <div class="navbar-collapse collapse">
 	            <ul class="nav navbar-nav navbar-right">
+	                <li><a href="/students">Student Registration</a></li>
+	                <li><a href="/modules">Module Registration </a></li>
 	                <li><a href="/patients">Patient Registration </a></li>
-	                <li><a href="/medicalRecords">Medical Record Registration </a></li>
+	                <li><a href="/medicalrecords">Medical Record Registration </a></li>
 	            </ul>
 	        </div>
 	    </div>
@@ -36,9 +39,9 @@
 		<div th:if="${error != null}" class="alert alert-danger" role="alert"><span th:text="${error}">msg error</span></div>
 	
 		<div layout:fragment="content">
-		  <p>Page content goes here</p>
+		  <h2>Bem-vindo ao <b>Prontuário.br</b></h2>
+		  <h4>Esse é um sistema de cadastro de pacientes e seus respectivos prontuários</h4>
 		</div>
 	</div>	
-	
-</body>
+	</body>
 </html>

@@ -21,12 +21,12 @@
 	                <span class="icon-bar"></span>
 	                <span class="icon-bar"></span>
 	            </button>
-	            <a class="navbar-brand" href="/">School</a>
+	            <a class="navbar-brand" href="/">Prontuário.br</a>
 	        </div>
 	        <div class="navbar-collapse collapse">
 	            <ul class="nav navbar-nav navbar-right">
-	                <li><a href="/students">Student Registration</a></li>
-	                <li><a href="/modules">Module Registration </a></li>
+	                <li><a href="/patients">Patient Registration </a></li>
+	                <li><a href="/medicalRecords">Medical Record Registration </a></li>
 	            </ul>
 	        </div>
 	    </div>
@@ -37,7 +37,8 @@
 		<div th:if="${error != null}" class="alert alert-danger" role="alert"><span th:text="${error}">msg error</span></div>
 	
 		<div layout:fragment="content">
-		  <h3>This is an example of Spring MVC Application</h3>
+		  <h2>Bem-vindo ao <b>Prontuário.br</b></h2>
+		  <h4>Esse é um sistema de cadastro de pacientes e seus respectivos prontuários</h4>
 		</div>
 	</div>	
 	</body>

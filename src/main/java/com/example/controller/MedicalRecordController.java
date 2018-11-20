@@ -23,11 +23,12 @@ import com.example.service.PatientService;
 import com.example.service.MedicalRecordService;
 
 @Controller
-@RequestMapping("/medicalrecords")
+@RequestMapping("/medicalRecords")
 public class MedicalRecordController {
 	
+	
 	@Autowired
-	private MedicalRecordService medicalrecordService;
+	private MedicalRecordService medicalRecordService;
 	
 	@Autowired
 	private PatientService patientService; //patient service
@@ -35,31 +36,31 @@ public class MedicalRecordController {
 	// Primeira tela da pagina de MedicalRecords
 	@GetMapping
 	public String index(Model model) {
-		List<MedicalRecord> all = medicalrecordService.findAll();
+		List<MedicalRecord> all = medicalRecordService.findAll();
 		model.addAttribute("listMedicalRecord", all);
 		model.addAttribute("");
-		return "medicalrecord/index";
+		return "medicalRecord/index";
 	}
 	
 	// Tela de Show MedicalRecord
 	@GetMapping("/{id}")
 	public String show(Model model, @PathVariable("id") Integer id) {
 		if (id != null) {
-			MedicalRecord medicalrecord = medicalrecordService.findOne(id).get();
-			model.addAttribute("medicalrecord", medicalrecord);
+			MedicalRecord medicalRecord = medicalRecordService.findOne(id).get();
+			model.addAttribute("medicalRecord", medicalRecord);
 		}
-		return "medicalrecord/show";
+		return "medicalRecord/show";
 	}
 
 	// Tela com Formulario de New MedicalRecord
 	@GetMapping(value = "/new")
 	public String create(Model model, @ModelAttribute MedicalRecord entityMedicalRecord, 
 			             @ModelAttribute Patient entityPatient) {
-		// model.addAttribute("medicalrecord", entityMedicalRecord);
+		// model.addAttribute("medicalRecord", entityMedicalRecord);
 		List<Patient> all = patientService.findAll();
 		model.addAttribute("patients", all);
 		
-		return "medicalrecord/form";
+		return "medicalRecord/form";
 	}
 	
 	// Processamento do formulario New MedicalRecord (ou Alter MedicalRecord) 
@@ -67,13 +68,13 @@ public class MedicalRecordController {
 	public String create(@Valid @ModelAttribute MedicalRecord entityMedicalRecord, 
 			             @Valid @ModelAttribute Patient entityPatient,
 			             BindingResult result, RedirectAttributes redirectAttributes) {
-		MedicalRecord medicalrecord = null;
-		String pagina_retorno = "redirect:/medicalrecords/" ;
+		MedicalRecord medicalRecord = null;
+		String pagina_retorno = "redirect:/medicalRecords/" ;
 	
 		try {
-			medicalrecord = medicalrecordService.save(entityMedicalRecord);
+			medicalRecord = medicalRecordService.save(entityMedicalRecord);
 			redirectAttributes.addFlashAttribute("success", MSG_SUCESS_INSERT);
-			pagina_retorno = pagina_retorno + medicalrecord.getId();
+			pagina_retorno = pagina_retorno + medicalRecord.getId();
 		} catch (Exception e) {
 			e.printStackTrace();
 			redirectAttributes.addFlashAttribute("error", MSG_ERROR);
@@ -93,42 +94,42 @@ public class MedicalRecordController {
 				List<Patient> all = patientService.findAll();
 				model.addAttribute("patients", all);
 				
-				MedicalRecord entity = medicalrecordService.findOne(id).get();
-				model.addAttribute("medicalrecord", entity);
+				MedicalRecord entity = medicalRecordService.findOne(id).get();
+				model.addAttribute("medicalRecord", entity);
 			}
 		} catch (Exception e) {
 			throw new ServiceException(e.getMessage());
 		}
-		return "medicalrecord/form";
+		return "medicalRecord/form";
 	}
 	
 	@PutMapping
 	public String update(@Valid @ModelAttribute MedicalRecord entity, BindingResult result, 
 			             RedirectAttributes redirectAttributes) {
-		MedicalRecord medicalrecord = null;
+		MedicalRecord medicalRecord = null;
 		try {
-			medicalrecord = medicalrecordService.save(entity);
+			medicalRecord = medicalRecordService.save(entity);
 			redirectAttributes.addFlashAttribute("success", MSG_SUCESS_UPDATE);
 		} catch (Exception e) {
 			redirectAttributes.addFlashAttribute("error", MSG_ERROR);
 			e.printStackTrace();
 		}
-		return "redirect:/medicalrecords/" + medicalrecord.getId();
+		return "redirect:/medicalRecords/" + medicalRecord.getId();
 	}
 	
 	@RequestMapping("/{id}/delete")
 	public String delete(@PathVariable("id") Integer id, RedirectAttributes redirectAttributes) {
 		try {
 			if (id != null) {
-				MedicalRecord entity = medicalrecordService.findOne(id).get();
-				medicalrecordService.delete(entity);
+				MedicalRecord entity = medicalRecordService.findOne(id).get();
+				medicalRecordService.delete(entity);
 				redirectAttributes.addFlashAttribute("success", MSG_SUCESS_DELETE);
 			}
 		} catch (Exception e) {
 			redirectAttributes.addFlashAttribute("error", MSG_ERROR);
 			throw new ServiceException(e.getMessage());
 		}
-		return "redirect:/medicalrecords/";
+		return "redirect:/medicalRecords/";
 	}
 	
 	private static final String MSG_SUCESS_INSERT = "MedicalRecord inserted successfully.";

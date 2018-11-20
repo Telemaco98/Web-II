@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.example.model.Patient;
-import com.example.model.Student;
 import com.example.service.PatientService;
 
 @Controller
@@ -50,7 +49,7 @@ public class PatientController {
 	}
 
 	@GetMapping(value = "/new")
-	public String create(Model model, @ModelAttribute Patient entityPatient, @ModelAttribute Student entityStudent) {
+	public String create(Model model, @ModelAttribute Patient entityPatient) {
 		// model.addAttribute("patient", entityPatient);
 		
 		return "patient/form";

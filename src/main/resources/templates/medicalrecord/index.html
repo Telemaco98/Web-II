@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorator="layout">
+<head>
+ 	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>MedicalRecord List</title>
+</head>
+<body>
+
+	<div layout:fragment="content">
+		<h1>MedicalRecord List</h1>
+		<hr />
+		<a th:href="@{/medicalRecords/new}" class="btn btn-success">New MedicalRecord</a><br/><br/>
+		
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Patient Name</th>
+					<th>Height</th>
+					<th>Weight</th>
+					<th>Date</th>
+					<th>Systolic Pressure</th>
+					<th>Diastolic Pressure</th>
+					<th>Medication</th>
+					<th>Symptoms</th>
+					<th>Clinical Status</th>
+					<th>Description</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="medicalRecord : ${listMedicalRecord}">
+					<td th:text="${medicalRecord.patient.name}"></td> 
+					<td th:text="${medicalRecord.height}"></td> 
+					<td th:text="${medicalRecord.weight}"></td> 
+					<td th:text="${medicalRecord.date}"></td> 
+					<td th:text="${medicalRecord.systolicBloodPressure}"></td> 
+					<td th:text="${medicalRecord.diastolicBloodPressure}"></td> 
+					<td th:text="${medicalRecord.medication}"></td> 
+					<td th:text="${medicalRecord.symptoms}"></td> 
+					<td th:text="${medicalRecord.clinicalStatus}"></td> 
+					<td th:text="${medicalRecord.description}"></td> 
+					<td>
+							<a th:href="@{/medicalRecords/{id}(id = ${medicalRecord.id})}" class="btn btn-primary" >View</a> 
+					 		<a th:href="@{/medicalRecords/{id}/edit(id = ${medicalRecord.id})}" class="btn btn-info">Edit</a> 
+					 		<a th:href="${'medicalRecords/'+ medicalRecord.id +'/delete'}" class="btn btn-danger">Delete</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	  </div>
+	  
+	  
+</body>
+</html>

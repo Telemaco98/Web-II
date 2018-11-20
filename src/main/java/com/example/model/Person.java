@@ -1,11 +1,22 @@
 package com.example.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 
-public abstract class Person {
+@Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public abstract class Person implements Serializable{
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int    id;
 	
 	@Column(name = "name")
 	private String name;
@@ -25,16 +36,14 @@ public abstract class Person {
 	@Column(name = "cell")
 	private String cell;
 	
-	public Person () { }
 	
-	public Person (String name, String birth, String cpf, char genre, String email, String cell) {
-		
-		this.name  = name;
-		this.birth = birth;
-		this.cpf   = cpf;
-		this.genre = genre;
-		this.email = email;
-		this.cell  = cell;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getName() {
