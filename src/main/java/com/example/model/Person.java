@@ -12,31 +12,30 @@ import javax.persistence.InheritanceType;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public abstract class Person implements Serializable{
-	
+public abstract class Person implements Serializable {
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int    id;
-	
-	@Column(name = "name")
+	private int id;
+
+	@Column
 	private String name;
-	
-	@Column(name = "birth")
+
+	@Column
 	private String birth;
-	
-	@Column(name = "cpf")
-	private String    cpf;
-	
-	@Column(name = "genre")
-	private char   genre;
-	
-	@Column(name = "email")
+
+	@Column
+	private String cpf;
+
+	@Column
+	private char genre;
+
+	@Column
 	private String email;
-	
-	@Column(name = "cell")
+
+	@Column
 	private String cell;
-	
-	
 
 	public int getId() {
 		return id;
@@ -93,6 +92,5 @@ public abstract class Person implements Serializable{
 	public void setCell(String cell) {
 		this.cell = cell;
 	}
-	
-	
+
 }

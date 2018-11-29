@@ -4,96 +4,39 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "patients")
 public class Patient extends Person implements Serializable {
 	private static final long serialVersionUID = 1L;
-
 	
-	/*@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int    id;
-
-	@Column(name = "name")
-	private String name;
+	@Column
+	private BloodType bloodType;
 	
-	@Column(name = "birth")
-	private String birth;
+	@Column
+	private boolean specialNeed;
 	
-	@Column(name = "cpf")
-	private String    cpf;
+	@Column
+	private String specialNeedDescription; 
 	
-	@Column(name = "genre")
-	private char   genre;
+	public BloodType getBloodType() {
+		return bloodType;
+	}
 	
-	@Column(name = "email")
-	private String email;
+	public boolean getSpecialNeed() {
+		return specialNeed;
+	}
 	
-	@Column(name = "cell")
-	private String cell;*/
+	public String getSpecialNeedDescription() {
+		return specialNeedDescription;
+	}
 	
+	public void setSpecialNeed(boolean specialNeed) {
+		this.specialNeed = specialNeed;
+	}
 	
-
-	/*public int getId() {
-		return id;
+	public void setSpecialNeedDescription(String specialNeedDescription) {
+		this.specialNeedDescription = specialNeedDescription;
 	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getBirth() {
-		return birth;
-	}
-
-	public void setBirth(String birth) {
-		this.birth = birth;
-	}
-
-	public String getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-
-	public char getGenre() {
-		return genre;
-	}
-
-	public void setGenre(char genre) {
-		this.genre = genre;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getCell() {
-		return cell;
-	}
-
-	public void setCell(String cell) {
-		this.cell = cell;
-	}
-	*/
-	
 }
