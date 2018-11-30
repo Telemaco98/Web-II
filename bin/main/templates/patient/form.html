@@ -3,12 +3,12 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorator="layout">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, maximum-scale=1" />
-<meta name="description" content="" />
-<meta name="author" content="" />
-<title>New Patient</title>
+	<meta charset="utf-8" />
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<meta name="description" content="" />
+	<meta name="author" content="" />
+	<title>New Patient</title>
 </head>
 <body>
 	<div layout:fragment="content">
@@ -24,37 +24,62 @@
 				<label for="name">Name</label> <input id="name" name="name"
 					type="text" class="form-control" th:field="*{name}" />
 			</div>
-			
+
 			<div class="form-group">
 				<label for="birth">Birth</label> <input id="birth" name="birth"
-					type="text" class="form-control" th:field="*{birth}" placeholder="01/01/1900"/>
+					type="text" class="form-control" th:field="*{birth}"
+					placeholder="01/01/1900" />
 			</div>
-			
+
 			<div class="form-group">
-				<label for="cpf">CPF</label> <input id="cpf" name="cpf"
-					type="text" class="form-control" th:field="*{cpf}" />
+				<label for="cpf">CPF</label> <input id="cpf" name="cpf" type="text"
+					class="form-control" th:field="*{cpf}" />
 			</div>
-			
+
 			<div class="form-group">
-				<label for="genre">Genre</label> <select id="genre" name="genre"
-					class="form-control" th:field="*{genre}">
+				<label for="genre">Genre</label> 
+				<select id="genre" name="genre" class="form-control" th:field="*{genre}">
 					<option value="f">Female</option>
-  					<option value="m">Male</option>
-  					<option value="o">Other</option>
-					</select>
+					<option value="m">Male</option>
+					<option value="o">Other</option>
+				</select>
 			</div>
-			
+
 			<div class="form-group">
 				<label for="email">Email</label> <input id="email" name="email"
 					type="text" class="form-control" th:field="*{email}" />
 			</div>
+			
 			<div class="form-group">
-				<label for="cell">Cell Phone</label> <input
-					id="cell" name="cell" type="text"
-					class="form-control" th:field="*{cell}" />
+				<label for="cell">Cell Phone</label> 
+				<input id="cell" name="cell" type="text" class="form-control" th:field="*{cell}" />
 			</div>
-			 
-
+			
+			<div class="form-group">
+				<label for="bloodType">Blood Type</label> 
+				<select id="bloodType" name="genre" class="form-control" th:field="*{genre}">
+					<option value="undefined">Undefined</option>
+					<option value="a+">A+</option>
+					<option value="a-">A-</option>
+					<option value="b+">B+</option>
+					<option value="b-">B-</option>
+					<option value="ab+">AB+</option>
+					<option value="ab-">AB-</option>
+					<option value="o+">o+</option>
+					<option value="o-">o-</option>
+				</select>
+			</div>
+			
+			<div class="form-group">
+				<label for="cell">Has special?</label> 
+				<input type="radio" name="specialNeed_no" value="no"> No
+				<input type="radio" name="specialNeed_yes" value="yes"> Yes
+			</div>
+			
+			<div class="form-group">
+				<label type="" for="specialNeedDescription"></label>
+			</div>
+			
 			<button type="submit" class="btn btn-success">Save</button>
 			<a th:href="@{/patients}" class="btn btn-default">Back</a>
 		</form>
