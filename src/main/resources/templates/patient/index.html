@@ -25,6 +25,8 @@
 					<th>Genre</th>
 					<th>Email</th>
 					<th>Cell Phone</th>
+					<th>Special Need</th>
+					<th>Special Need Description</th>
 					<th>Action</th>
 				</tr>
 			</thead>
@@ -36,6 +38,8 @@
 					<td th:text="${patient.genre}"></td> 
 					<td th:text="${patient.email}"></td> 
 					<td th:text="${patient.cell}"></td>
+					<td th:text="${patient.specialNeed}"></td>
+					<td th:text="${patient.specialNeedDescription}"></td>
 					<td>
 							<a th:href="@{/patients/{id}(id = ${patient.id})}" class="btn btn-primary" >View</a> 
 					 		<a th:href="@{/patients/{id}/edit(id = ${patient.id})}" class="btn btn-info">Edit</a> 

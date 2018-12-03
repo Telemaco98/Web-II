@@ -37,6 +37,26 @@
 			<div class="form-group"> 
 				<label for="cell">Cell Phone: </label>  
 				<span th:text="${patient.cell}"></span> 
+			</div>
+			
+			<div class="form-group"> 
+				<label for="email">Email: </label>  
+				<span th:text="${patient.email}"></span> 
+			</div>
+			
+			<div class="form-group"> 
+				<label for="bloodType">Blood Type: </label>  
+				<span th:text="${patient.bloodType}"></span> 
+			</div> 
+			
+			<div class="form-group"> 
+				<label for="specialNeed">Special Need: </label>  
+				<span th:text="${patient.specialNeed}"></span> 
+			</div> 
+			
+			<div class="form-group"> 
+				<label for="specialNeedDescription">Special Need: </label>  
+				<span th:text="${patient.specialNeedDescription}"></span> 
 			</div> 
 			<a th:href="@{/patients}" class="btn btn-primary" >Back to list Patient</a> 
 			<a th:href="@{/patients/{id}/edit(id = ${patient.id})}" class="btn btn-info">Edit this patient</a>

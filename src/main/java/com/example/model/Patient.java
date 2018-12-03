@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Table;
 
 @Entity
@@ -11,6 +13,7 @@ import javax.persistence.Table;
 public class Patient extends Person implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
+	@Enumerated(EnumType.STRING)
 	@Column
 	private BloodType bloodType;
 	

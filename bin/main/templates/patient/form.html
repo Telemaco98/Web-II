@@ -57,27 +57,27 @@
 			
 			<div class="form-group">
 				<label for="bloodType">Blood Type</label> 
-				<select id="bloodType" name="genre" class="form-control" th:field="*{genre}">
+				<select id="bloodType" name="genre" class="form-control" th:field="*{bloodType}">
 					<option value="undefined">Undefined</option>
-					<option value="a+">A+</option>
-					<option value="a-">A-</option>
-					<option value="b+">B+</option>
-					<option value="b-">B-</option>
-					<option value="ab+">AB+</option>
-					<option value="ab-">AB-</option>
-					<option value="o+">o+</option>
-					<option value="o-">o-</option>
+					<option value="A_neg">A+</option>
+					<option value="A_pos">A-</option>
+					<option value="B_pos">B+</option>
+					<option value="B_neg">B-</option>
+					<option value="AB_pos">AB+</option>
+					<option value="AB_neg">AB-</option>
+					<option value="o_pos">o+</option>
+					<option value="o_neg">o-</option>
 				</select>
 			</div>
 			
 			<div class="form-group">
-				<label for="cell">Has special?</label> 
-				<input type="radio" name="specialNeed_no" value="no"> No
-				<input type="radio" name="specialNeed_yes" value="yes"> Yes
+				<label for="specialNeed">Has special?</label>
+				<input type="radio" name="group" value="false"> No
+				<input type="radio" name="group" value="true"> Yes
 			</div>
 			
 			<div class="form-group">
-				<label type="" for="specialNeedDescription"></label>
+				<textarea for="specialNeedDescription"></textarea>
 			</div>
 			
 			<button type="submit" class="btn btn-success">Save</button>
