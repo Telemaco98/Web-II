@@ -7,36 +7,38 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.model.Patient;
-import com.example.repository.PatientRepository;
+import com.example.model.Nurse;
+import com.example.repository.NurseRepository;
 
 @Service
 @Transactional(readOnly = true)
-public class PatientService {
+public class NurseService {
 	@Autowired
-	private PatientRepository patientRepository;
+	private NurseRepository nurseRepository;
 
-	public List<Patient> findAll() {
-		return patientRepository.findAll();
+	public List<Nurse> findAll() {
+		return nurseRepository.findAll();
 	}
 	
-	public Optional<Patient> findOne(Integer id) {
-		return patientRepository.findById(id);
+	public Optional<Nurse> findOne(Integer id) {
+		return nurseRepository.findById(id);
 	}
 	
 	@Transactional(readOnly = false)
-	public Patient save(Patient entity) throws Exception{
+	public Nurse save(Nurse entity) throws Exception{
 		if(!( entity.getEmail().contains("@") ) ) {
 			throw new Exception("Email incorreto!");
 		}else if(entity.getCpf()=="" || entity.getCpf()==null){
 			throw new Exception("CPF incorreto!");
+		}else if(entity.getCoren()=="" || entity.getCoren()==null){
+			throw new Exception("CRM incorreto!");
 		}else {
-			return patientRepository.save(entity);
+			return nurseRepository.save(entity);
 		}
 	}
 
 	@Transactional(readOnly = false)
-	public void delete(Patient entity) {
-		patientRepository.delete(entity);
+	public void delete(Nurse entity) {
+		nurseRepository.delete(entity);
 	}
 }

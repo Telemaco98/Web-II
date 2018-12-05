@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+		<meta name="description" content="" />
+		<meta name="author" content="" />
+		<title>Show Doctor</title>
+	</head>
+	<body>
+		<div layout:fragment="content">
+			<h1>Show Doctor</h1>
+			<hr />
+			<div class="form-group"> 
+				<label for="name">Name: </label>  
+				<span th:text="${doctor.name}"></span> 
+			</div> 
+			<div class="form-group"> 
+				<label for="birth">Birth: </label>  
+				<span th:text="${doctor.birth}"></span> 
+			</div> 
+			<div class="form-group"> 
+				<label for="cpf">CPF: </label> 
+				<span th:text="${doctor.cpf}"></span> 
+			</div> 
+			<div class="form-group"> 
+				<label for="genre">Genre: </label>  
+				<span th:text="${doctor.genre}"></span> 
+			</div> 
+			<div class="form-group"> 
+				<label for="email">Email: </label>  
+				<span th:text="${doctor.email}"></span> 
+			</div> 
+			
+			<div class="form-group"> 
+				<label for="cell">Cell Phone: </label>  
+				<span th:text="${doctor.cell}"></span> 
+			</div> 
+			<div class="form-group"> 
+				<label for="crm">CRM: </label>  
+				<span th:text="${doctor.crm}"></span> 
+			</div> 
+			<a th:href="@{/doctors}" class="btn btn-primary" >Back to list Doctor</a> 
+			<a th:href="@{/doctors/{id}/edit(id = ${doctor.id})}" class="btn btn-info">Edit this doctor</a>
+			<a th:href="${doctor.id +'/delete'}" class="btn btn-danger">Delete this doctor</a>
+			
+		</div>
+	</body>
+</html>

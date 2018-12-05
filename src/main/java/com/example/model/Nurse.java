@@ -10,20 +10,21 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "doctors")
-public class Doctor extends Person implements Serializable {
+@Table(name = "nurses")
+public class Nurse extends Person implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Column(name = "crm")
-	private String crm;
+	@Column(name = "coren")
+	private String coren;
 
-	public String getCrm() {
-		return crm;
+	public String getCoren() {
+		return coren;
 	}
 
-	public void setCrm(String crm) {
-		this.crm = crm;
+	public void setCoren(String coren) {
+		this.coren = coren;
 	}
+	
 	
 	/*@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
